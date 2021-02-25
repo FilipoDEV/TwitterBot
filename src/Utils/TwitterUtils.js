@@ -15,7 +15,7 @@ async function postQuestions() {
 }
 
 async function getQuestions() {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
     const page = await browser.newPage();
     await page.goto("https://either.io");
     const questions = await page.evaluate(() => {
